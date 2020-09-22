@@ -1,8 +1,9 @@
 class Juego(): 
     def __init__(self):
-        self.intento = 6
+        self.intento = 3
         self.long = 4
         self.palabra = 'Roma'
+        self.condicion = False
 
     def tirar(self): 
         return 0
@@ -15,10 +16,15 @@ class Juego():
 
     def palabra_correcta(self, pal):
         if self.palabra.lower == pal.lower:
+            self.condicion = True
             return True
         else:
             self.intento -= 1
-            return False
+            if self.intento == 0: #termina juego
+                return False
 
     def devolver_longitud(self):
         return self.long
+
+    def devolver_condicion(self):
+        return self.condicion
