@@ -28,3 +28,9 @@ class Juego():
 
     def devolver_condicion(self):
         return self.condicion
+
+    def devolver_palabra(self):
+        return self.palabra
+
+    def setear_palabra(self):
+        self.palabra = 'Roma'
