@@ -34,15 +34,15 @@ class TestJuego(unittest.TestCase):
         juego.setear_palabra()
 
         # Act
-        intentos = juego.devolver_intento()
-        intentos -= 1
+        intentos_test = juego.devolver_intento()
+        intentos_test -= 1
         a = 'Paris'
         x = juego.palabra_correcta(a)
-        intent = juego.devolver_intento()
+        intentos_clase = juego.devolver_intento()
         c = juego.devolver_condicion()
 
         # Assert
-        self.assertEqual(intentos,intent)
+        self.assertEqual(intentos_test,intentos_clase)
         self.assertEqual(c,False)
 
     def test_longitud(self):
