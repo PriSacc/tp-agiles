@@ -1,9 +1,10 @@
 class Juego(): 
     def __init__(self):
-        self.intento = 3
-        self.long = 4
-        self.palabra = 'Roma'
+        self.intento = 0
+        self.long = 0
+        self.palabra = ""
         self.condicion = False
+        self.dificultad = 0
 
     def tirar(self): 
         return 0
@@ -32,5 +33,15 @@ class Juego():
     def devolver_palabra(self):
         return self.palabra
 
-    def setear_palabra(self):
-        self.palabra = 'Roma'
+    def setear_palabra(self,pal):
+        self.palabra = pal
+        self.long = len(pal)
+
+    def setear_intentos(self,inte):
+        self.intento = inte
+
+    def devolver_dificultad(self):
+        return self.dificultad
+
+    def setear_dificultad(self,dificultad):
+        self.dificultad = dificultad
