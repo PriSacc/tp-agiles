@@ -76,7 +76,55 @@ class TestJuego(unittest.TestCase):
         # Assert
         self.assertEqual(x,dificultad)
 
-    
+
+
+    def test_puntaje_primero(self):
+
+        # Arrange
+        juego = Juego()
+
+        # Act
+        dificultad = 3
+        palabra_correcta = "Londres"
+        intentos = 5
+        juego.setear_dificultad(dificultad)
+        juego.setear_palabra(palabra_correcta)
+        juego.setear_intentos(intentos)
+
+        juego.palabra_correcta("Londres")
+
+        x = juego.calcular_puntajes()
+
+        # Assert
+
+        self.assertEqual(x,300)
+
+
+    def test_puntaje_segundo(self):
+
+        # Arrange
+        juego = Juego()
+
+        # Act
+        dificultad = 2
+        palabra_correcta = "Londres"
+        intentos = 8
+        juego.setear_dificultad(dificultad)
+        juego.setear_palabra(palabra_correcta)
+        juego.setear_intentos(intentos)
+
+        juego.palabra_correcta("Berlin")
+        juego.palabra_correcta("Berlin")
+        juego.palabra_correcta("Berlin")
+        juego.palabra_correcta("Berlin")
+        juego.palabra_correcta("Londres")
+        
+        x = juego.calcular_puntajes()
+
+        # Assert
+
+        self.assertEqual(x,40)
+
 
 
 

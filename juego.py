@@ -1,10 +1,12 @@
 class Juego(): 
     def __init__(self):
         self.intento = 0
+        self.intentos_originales = 0
         self.long = 0
         self.palabra = ""
         self.condicion = False
         self.dificultad = 0
+        self.puntaje = 0
 
     def tirar(self): 
         return 0
@@ -39,9 +41,21 @@ class Juego():
 
     def setear_intentos(self,inte):
         self.intento = inte
+        self.intentos_originales = inte
 
     def devolver_dificultad(self):
         return self.dificultad
 
     def setear_dificultad(self,dificultad):
         self.dificultad = dificultad
+
+
+    def calcular_puntajes(self):
+        if self.condicion == True:
+            self.puntaje = 100 * (self.dificultad / (1 + self.intentos_originales - self.intento))
+            return  self.puntaje
+        else:
+            self.puntaje = 0
+            return  self.puntaje
+
+        
