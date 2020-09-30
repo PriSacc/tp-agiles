@@ -1,7 +1,26 @@
 import unittest
 from juego import Juego
+from random import choice
 
 class TestJuego(unittest.TestCase): 
+
+    def test_seleccionar_palabra(self):
+
+        # Arrange
+        juego = Juego()
+        
+        # Act
+
+        a = juego.seleccionar_palabra(1)
+        print(a)
+        if a != None:
+            x = True
+    
+        #Assert
+
+        self.assertEqual(x,True)
+
+       
     def test_intentos(self):
 
         # Arrange
