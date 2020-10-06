@@ -15,7 +15,7 @@ class TestJuego(unittest.TestCase):
             x = True
     
         #Assert
-        self.assertEqual(x,True)
+        self.assertTrue(x)
 
        
     def test_letra_incorreta_restar_intento(self):
@@ -65,7 +65,7 @@ class TestJuego(unittest.TestCase):
         c = juego.devolver_condicion()
 
         # Assert
-        self.assertEqual(c,True)
+        self.assertTrue(c)
 
     def test_palabra_incorrecta_condicion(self):
 
@@ -81,7 +81,7 @@ class TestJuego(unittest.TestCase):
         c = juego.devolver_condicion()
 
         # Assert
-        self.assertEqual(c,False)
+        self.assertFalse(c)
 
     def test_palabra_incorrecta_numero_intento(self):
 
