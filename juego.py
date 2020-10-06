@@ -9,8 +9,8 @@ class Juego():
         self.condicion = False
         self.dificultad = 0
         self.puntaje = 0
-        self.palabras_1 = [{'palabra' : 'Madrid', 'descripcion': 'Ciudad grande de España'},{'palabra' : 'Paris', 'descripcion': 'Ciudad grande de Francia'}]
-        self.palabras_2 = {'palabra' : 'Barcelona', 'descripcion': 'Ciudad grande de España'}
+        self.palabras_1 = [{'palabra' : 'Madrid', 'descripcion': 'Ciudad grande de España'},{'palabra' : 'Paris', 'descripcion': 'Ciudad grande de Francia'},{'palabra' : 'Elefante', 'descripcion': 'Animal grande'},{'palabra' : 'Gallina', 'descripcion': 'Animal de granja'}]
+        self.palabras_2 = [{'palabra' : 'Barcelona', 'descripcion': 'Ciudad grande de España'},{'palabra' : 'Lyon', 'descripcion': 'Ciudad grande de Francia'},{'palabra' : 'Rinoceronte', 'descripcion': 'Animal grande'},{'palabra' : 'Oveja', 'descripcion': 'Animal de granja'}]
         
 
     def tirar(self): 
@@ -54,7 +54,6 @@ class Juego():
     def setear_dificultad(self,dificultad):
         self.dificultad = dificultad
 
-
     def calcular_puntajes(self):
         if self.condicion == True:
             self.puntaje = 100 * (self.dificultad / (1 + self.intentos_originales - self.intento))
@@ -67,6 +66,23 @@ class Juego():
         if dificultad == 1:
             a = random.choice(list(self.palabras_1))
             return a
+
+        if dificultad == 2:
+            a = random.choice(list(self.palabras_2))
+            return a
+
+    def esta_incluida(self,letra):
+        if self.palabra.find(letra) != -1:
+            return True
+        else:
+            return False
+
+    def letra_correcta(self, pal):
+        if self.esta_incluida(pal):
+            return True
+        else:
+            self.intento -= 1
+            return False
 
 
         

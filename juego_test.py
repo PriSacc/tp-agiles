@@ -10,29 +10,48 @@ class TestJuego(unittest.TestCase):
         juego = Juego()
         
         # Act
-
-        a = juego.seleccionar_palabra(1)
-        print(a)
+        a = juego.seleccionar_palabra(2)
         if a != None:
             x = True
     
         #Assert
-
         self.assertEqual(x,True)
 
        
-    def test_intentos(self):
+    def test_letra_incorreta_restar_intento(self):
 
         # Arrange
         juego = Juego()
-
-        # Act
+        a = 'Roma'
+        juego.setear_palabra(a)
         intentos = 3
         juego.setear_intentos(intentos)
-        x = juego.devolver_intento()
+       
+        # Act
+        letra_incorrecta = 'e'
+        juego.letra_correcta(letra_incorrecta)
+        intentos_clase = juego.devolver_intento()
         
         #Assert
-        self.assertEqual(x,intentos)
+        self.assertEqual(intentos_clase,2)
+
+
+    def test_letra_correta_no_restar_intento(self):
+
+        # Arrange
+        juego = Juego()
+        a = 'Roma'
+        juego.setear_palabra(a)
+        intentos = 3
+        juego.setear_intentos(intentos)
+       
+        # Act
+        letra_incorrecta = 'a'
+        juego.letra_correcta(letra_incorrecta)
+        intentos_clase = juego.devolver_intento()
+        
+        #Assert
+        self.assertEqual(intentos_clase,3)
 
     def test_palabra_correcta(self):
 
@@ -46,10 +65,25 @@ class TestJuego(unittest.TestCase):
         c = juego.devolver_condicion()
 
         # Assert
-        self.assertEqual(x,True)
         self.assertEqual(c,True)
 
-    def test_palabra_incorrecta(self):
+    def test_palabra_incorrecta_condicion(self):
+
+        # Arrange
+        juego = Juego()
+        juego.setear_palabra("Paris")
+
+        # Act
+        intentos=3
+        juego.setear_intentos(intentos)
+        palabra_incorrecta = 'Madrid'
+        juego.palabra_correcta(palabra_incorrecta)
+        c = juego.devolver_condicion()
+
+        # Assert
+        self.assertEqual(c,False)
+
+    def test_palabra_incorrecta_numero_intento(self):
 
         # Arrange
         juego = Juego()
@@ -61,13 +95,13 @@ class TestJuego(unittest.TestCase):
         intentos_test = juego.devolver_intento()
         intentos_test -= 1
         palabra_incorrecta = 'Madrid'
-        x = juego.palabra_correcta(palabra_incorrecta)
+        juego.palabra_correcta(palabra_incorrecta)
         intentos_clase = juego.devolver_intento()
-        c = juego.devolver_condicion()
+        
 
         # Assert
         self.assertEqual(intentos_test,intentos_clase)
-        self.assertEqual(c,False)
+        
 
     def test_longitud(self):
         
@@ -144,7 +178,57 @@ class TestJuego(unittest.TestCase):
 
         self.assertEqual(x,40)
 
+    def test_letra_incluida(self):
 
+        # Arrange
+        juego = Juego()
+        juego.setear_palabra("Londres")
+
+        # Act
+        letra = 'o'
+        ingreso = juego.esta_incluida(letra)
+        
+        # Assert
+        self.assertEqual(ingreso,True)
+
+    def test_letra_no_incluida(self):
+
+        # Arrange
+        juego = Juego()
+        juego.setear_palabra("Londres")
+
+        # Act
+        letra = 'a'
+        ingreso = juego.esta_incluida(letra)
+        
+        # Assert
+        self.assertEqual(ingreso,False)
+
+
+    def test_finalizacion_juego(self):
+
+        # Arrange
+        juego = Juego()
+
+        # Act
+        palabra_correcta = "Londres"
+        intentos = 4
+        juego.setear_palabra(palabra_correcta)
+        juego.setear_intentos(intentos)
+
+        for i in palabra_correcta:
+            letra = 'a'
+            ingreso = juego.esta_incluida(letra)
+            if ingreso == False:
+                intentos -= 1
+            if intentos == 0:
+                resultado = False
+                break
+
+        # Assert
+        self.assertEqual(resultado,False)
+
+    
 
 
 if __name__ == "__main__":
