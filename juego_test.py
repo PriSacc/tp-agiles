@@ -36,7 +36,7 @@ class TestJuego(unittest.TestCase):
         self.assertEqual(intentos_clase,2)
 
 
-    def test_letra_correta_no_restar_intento(self):
+    def test_letra_correcta_no_restar_intento(self):
 
         # Arrange
         juego = Juego()
@@ -46,8 +46,8 @@ class TestJuego(unittest.TestCase):
         juego.setear_intentos(intentos)
        
         # Act
-        letra_incorrecta = 'a'
-        juego.letra_correcta(letra_incorrecta)
+        letra_correcta = 'a'
+        juego.letra_correcta(letra_correcta)
         intentos_clase = juego.devolver_intento()
         
         #Assert
@@ -189,7 +189,8 @@ class TestJuego(unittest.TestCase):
         ingreso = juego.esta_incluida(letra)
         
         # Assert
-        self.assertEqual(ingreso,True)
+        
+        self.assertTrue(ingreso)
 
     def test_letra_no_incluida(self):
 
@@ -202,7 +203,8 @@ class TestJuego(unittest.TestCase):
         ingreso = juego.esta_incluida(letra)
         
         # Assert
-        self.assertEqual(ingreso,False)
+       
+        self.assertFalse(ingreso)
 
 
     def test_finalizacion_juego(self):
@@ -226,10 +228,8 @@ class TestJuego(unittest.TestCase):
                 break
 
         # Assert
-        self.assertEqual(resultado,False)
+        self.assertFalse(resultado)
 
     
-
-
 if __name__ == "__main__":
     unittest.main()
