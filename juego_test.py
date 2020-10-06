@@ -149,7 +149,6 @@ class TestJuego(unittest.TestCase):
         x = juego.calcular_puntajes()
 
         # Assert
-
         self.assertEqual(x,300)
 
 
@@ -175,7 +174,6 @@ class TestJuego(unittest.TestCase):
         x = juego.calcular_puntajes()
 
         # Assert
-
         self.assertEqual(x,40)
 
     def test_letra_incluida(self):
@@ -189,7 +187,6 @@ class TestJuego(unittest.TestCase):
         ingreso = juego.esta_incluida(letra)
         
         # Assert
-        
         self.assertTrue(ingreso)
 
     def test_letra_no_incluida(self):
@@ -203,7 +200,6 @@ class TestJuego(unittest.TestCase):
         ingreso = juego.esta_incluida(letra)
         
         # Assert
-       
         self.assertFalse(ingreso)
 
 
