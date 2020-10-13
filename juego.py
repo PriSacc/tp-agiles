@@ -11,7 +11,8 @@ class Juego():
         self.puntaje = 0
         self.palabras_1 = [{'palabra' : 'Madrid', 'descripcion': 'Ciudad grande de España'},{'palabra' : 'Paris', 'descripcion': 'Ciudad grande de Francia'},{'palabra' : 'Elefante', 'descripcion': 'Animal grande'},{'palabra' : 'Gallina', 'descripcion': 'Animal de granja'}]
         self.palabras_2 = [{'palabra' : 'Barcelona', 'descripcion': 'Ciudad grande de España'},{'palabra' : 'Lyon', 'descripcion': 'Ciudad grande de Francia'},{'palabra' : 'Rinoceronte', 'descripcion': 'Animal grande'},{'palabra' : 'Oveja', 'descripcion': 'Animal de granja'}]
-        
+        self.letras_ingresadas_correctas = []
+        self.letras_ingresadas_incorrectas = []
 
     def tirar(self): 
         return 0
@@ -29,6 +30,7 @@ class Juego():
         else:
             self.intento -= 1
             if self.intento == 0: #termina juego
+                self.condicion = False
                 return False
 
     def devolver_longitud(self):
@@ -82,7 +84,32 @@ class Juego():
             return True
         else:
             self.intento -= 1
+            if self.intento == 0: #termina juego
+                self.condicion = False
             return False
+
+    def arriesgar(self, letra):
+        if letra not in self.letras_ingresadas_correctas and letra not in self.letras_ingresadas_incorrectas: 
+            cont = 0
+            palabra = self.devolver_palabra()
+            for i in range(len(palabra)):
+                if palabra[i] == letra:
+                    self.letras_ingresadas_correctas.append(palabra[i]) 
+                    cont += 1
+            if cont == 0:
+                self.intento -= 1
+                self.letras_ingresadas_incorrectas.append(letra)
+        self.obtener_resultado()
+
+    def obtener_resultado(self):
+        if len(self.palabra)==len(self.letras_ingresadas_correctas):
+            self.condicion = True
+        else:
+            self.condicion = False
+
+        
+
+
 
 
         

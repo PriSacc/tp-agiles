@@ -18,7 +18,7 @@ class TestJuego(unittest.TestCase):
         self.assertTrue(x)
 
        
-    def test_letra_incorreta_restar_intento(self):
+    def test_letra_incorrecta_restar_intento(self):
 
         # Arrange
         juego = Juego()
@@ -203,7 +203,7 @@ class TestJuego(unittest.TestCase):
         self.assertFalse(ingreso)
 
 
-    def test_finalizacion_juego(self):
+    def test_finalizacion_juego_perdido(self):
 
         # Arrange
         juego = Juego()
@@ -214,17 +214,54 @@ class TestJuego(unittest.TestCase):
         juego.setear_palabra(palabra_correcta)
         juego.setear_intentos(intentos)
 
-        for i in palabra_correcta:
-            letra = 'a'
-            ingreso = juego.esta_incluida(letra)
-            if ingreso == False:
-                intentos -= 1
-            if intentos == 0:
-                resultado = False
-                break
+        letra = 'a'
+        ingreso = juego.arriesgar(letra)
+        letra = 'e'
+        ingreso = juego.arriesgar(letra)
+        letra = 'n'
+        ingreso = juego.arriesgar(letra)
+        letra = 'a'
+        ingreso = juego.arriesgar(letra)
+        letra = 'a'
+        ingreso = juego.arriesgar(letra)
+        letra = 'a'
+        ingreso = juego.arriesgar(letra)
+
+        resultado = juego.devolver_condicion()
 
         # Assert
         self.assertFalse(resultado)
+
+    def test_finalizacion_juego_ganado(self):
+
+        # Arrange
+        juego = Juego()
+
+        # Act
+        palabra_correcta = "Londres"
+        intentos = 4
+        juego.setear_palabra(palabra_correcta)
+        juego.setear_intentos(intentos)
+
+        letra = 'L'
+        ingreso = juego.arriesgar(letra)
+        letra = 'o'
+        ingreso = juego.arriesgar(letra)
+        letra = 'n'
+        ingreso = juego.arriesgar(letra)
+        letra = 'd'
+        ingreso = juego.arriesgar(letra)
+        letra = 'r'
+        ingreso = juego.arriesgar(letra)
+        letra = 'e'
+        ingreso = juego.arriesgar(letra)
+        letra = 's'
+        ingreso = juego.arriesgar(letra)
+
+        resultado = juego.devolver_condicion()
+
+        # Assert
+        self.assertTrue(resultado)
 
     
 if __name__ == "__main__":
