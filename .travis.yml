@@ -12,7 +12,7 @@ install:
 - pip install coverage codecov
 script:
 - flake8 texar/ examples/
-- coverage run -m juego_test.py
+- coverage run -m pytest
 after_success:
 - codecov
 jobs:
