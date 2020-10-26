@@ -16,7 +16,6 @@ script:
 - coverage run -m juego_test.py
 after_success:
 - codecov
-- "./scripts/travis_after_success.sh"
 jobs:
   include:
   - stage: docs
