@@ -22,7 +22,7 @@ jobs:
     install:
     - pip install --upgrade pip
     - sudo apt-get install libenchant1c2a myspell-en-us
-    - pip install --progress-bar off -r docs/requirements.txt
+    - pip install --progress-bar off -r requirements.txt
     script:
     - cd docs
     - sphinx-build -W -b html -d _build/doctrees . _build/html
