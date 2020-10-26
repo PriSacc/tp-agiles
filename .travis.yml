@@ -1,13 +1,9 @@
 language: python
 python:
-  - 3.5
-before_install:
-  - python --version
-  - pip install -U pip
-  - pip install -U pytest
-  - pip install codecov
+  - "3.5"
+# command to install dependencies
 install:
-  - pip install ".[test]" . # install package + test dependencies
-script: juego_test.py # run tests
-after_success:
-  - codecov
+  - pip install -r requirements.txt
+# command to run tests
+script:
+  - juego_test
