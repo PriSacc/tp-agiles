@@ -13,7 +13,7 @@ install:
 
 # Run the unit test
 script:
-  - coverage run juego_test.py
+  - python juego_test.py
 
 # Push the results back to codecov
 after_success:
