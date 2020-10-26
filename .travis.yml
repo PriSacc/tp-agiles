@@ -1,20 +1,7 @@
-# Disable sudo to speed up the build
-sudo: false
-
-# Set the build language to Python
 language: python
-
-# Set the python version to 3.5
-python: 3.5
-
-# Install the codecov pip dependency
+python:
+ - "3.5"
 install:
-  - pip install codecov
-
-# Run the unit test
+ - pip install -r requirements.txt
 script:
-  - python juego_test.py
-
-# Push the results back to codecov
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+ - python -m unittest tests.test_operations
