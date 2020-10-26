@@ -255,7 +255,7 @@ class TestJuego(unittest.TestCase):
         ingreso = juego.arriesgar(letra)
         letra = 'e'
         ingreso = juego.arriesgar(letra)
-        letra = 'e'
+        letra = 's'
         ingreso = juego.arriesgar(letra)
 
         resultado = juego.devolver_condicion()
