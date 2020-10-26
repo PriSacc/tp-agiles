@@ -10,6 +10,6 @@ before_install:
   - pip install codecov
 install:
   - pip install ".[test]" . # install package + test dependencies
-script: juego_test # run tests
+script: juego_test.py # run tests
 after_success:
   - codecov
