@@ -13,6 +13,8 @@ install:
 script:
 - flake8 texar/ examples/
 - coverage run -m pytest
+- coverage report 
+- coverage html
 after_success:
 - codecov
 
