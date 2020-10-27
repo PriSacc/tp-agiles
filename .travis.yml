@@ -14,5 +14,5 @@ script:
 - flake8 texar/ examples/
 - coverage run -m pytest
 after_success:
-- codecov
+- coveralls
 
