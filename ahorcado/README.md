@@ -1,25 +1,25 @@
-# simple-hangman
-A hangman clone using React.js and Bootstrap and with Flask providing the API. All business
-logic is performed in the back-end to prevent cheating.
+# TPI - Ahorcado - Metodologias Ágiles 🌵 
+Un clon del famoso juego del ahoracado usando React.js, Bootstrap y Flask para la API. Toda la logica de negocio
+es manejada por el backend.
 
-The instructions assume the current directory to be the project directory.
+Las instrucciones asumen que el directorio actual será el directorio del proyecto.
 
-## For the back-end API
-Requires Python3 and the following python libraries to function:
+## Para la API del Backend 🔥 
+Se necesita Python3 y las siguientes librerias, para su funcionamiento:
 - Flask (`pip install flask`)
 - Flask-CORS (`pip install flask-cors`)
 
-After installing the above, run `python hangman_api.py` to start the service.
-It should be running on port 5000.
+Despues de instalar lo mencionado arriba, correr `python hangman_api.py`, para iniciar el servicio.
+Debería estar corriendo en el puerto 5000.
 
-## For the front-end
-Requires Node.js and NPM to be installed(http://nodejs.org)
+## Para el Frontend 🔥 
+Requiere tener instalado Node.js y NPM (http://nodejs.org)
 
-Once installed, execute `npm install` to install all the dependencies required.
+Una vez instalados, ejecutar `npm install` para instalar todas las dependencias necesarias.
 
-Run `npm start` to start the development web server. It should serve the website
-at http://localhost:3000
+Correr `npm start` para iniciar el development web server. Deberia abrirse una ventana al ejecutarse en
+http://localhost:3000.
 
-## Running the Test Cases
+## Ejecutar casos de prueba 🔥 
 
-Run `python test_hangman_api.py` to run the tests.
+Correr `python test_hangman_api.py` para correr los tests.
