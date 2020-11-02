@@ -10,6 +10,8 @@ install:
 - pip install flake8==3.7.7
 - pip install pytest
 - pip install coverage codecov
+- pip install flask = "" 
+- pip install flask-cors = ""
 script:
 - flake8 texar/ examples/
 - coverage run -m pytest
