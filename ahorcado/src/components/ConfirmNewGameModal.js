@@ -39,11 +39,11 @@ class InfoWindowModal extends Component {
                <div className="modal-content">
 
                    <div className="modal-header">
-                       <h4 className="modal-title" id="myModalLabel">Confirm New Game</h4>
+                       <h4 className="modal-title" id="myModalLabel">Confirmar nuevo juego</h4>
                    </div>
 
                    <div className="modal-body">
-                       <p>Iniciar un nuevo juego mientras un juego está en progreso, hará qie el juego actual resulte en una pérdida.</p>
+                       <p>Iniciar un nuevo juego mientras un juego está en progreso, hará que el juego actual resulte en una pérdida.</p>
                        <p>¿Desea continuar?</p>
                    </div>
 

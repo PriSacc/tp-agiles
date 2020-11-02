@@ -192,10 +192,10 @@ class App extends Component {
 
             <div className="col-md-6 text-center">
                 <a className="btn btn-default" onClick={this.onNewGameRequested}>
-                  <i className="glyphicon glyphicon-repeat"></i> New Game
+                  <i className="glyphicon glyphicon-repeat"></i> Nuevo Juego
                 </a>
                 <a className="btn btn-default"  data-toggle="modal" data-target="#infoWindow" onClick={this.showInfo}>
-                  <i className="glyphicon glyphicon-info-sign" ></i> How to Play
+                  <i className="glyphicon glyphicon-info-sign" ></i> Como Jugar?
                 </a>
                 <WordArea blanks={this.state.blanks} gameStatus={this.state.gameStatus}/>
                 <CharSelector usedChars = {this.state.usedChars} ref={instance => {this.charselector = instance;}}
