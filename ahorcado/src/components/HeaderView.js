@@ -25,10 +25,10 @@ class WinLossIndicator extends Component {
   render() {
     let statusMessage = null;
     if (this.props.gameStatus === -1){
-      statusMessage =  <div className="alert alert-danger"> <strong>Sorry!</strong> You lost. <strong>Try again by starting a new game </strong> </div>;
+      statusMessage =  <div className="alert alert-danger"> <strong>Lo siento!</strong> Has perdido. <strong>Inténtalo de nuevo, iniciando un nuevo juego. </strong> </div>;
     }
     else if (this.props.gameStatus === 1){
-      statusMessage = <div className="alert alert-success"> <strong> Congratulations! </strong> You won! </div>;
+      statusMessage = <div className="alert alert-success"> <strong> Felicitaciones! </strong> Ganaste! </div>;
     }
     else{
       statusMessage = null

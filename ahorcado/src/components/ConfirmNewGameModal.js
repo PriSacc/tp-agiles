@@ -43,13 +43,13 @@ class InfoWindowModal extends Component {
                    </div>
 
                    <div className="modal-body">
-                       <p>Starting a new game while a game is in progress will result in the current game counting as a loss.</p>
-                       <p>Do you want to continue?</p>
+                       <p>Iniciar un nuevo juego mientras un juego está en progreso, hará qie el juego actual resulte en una pérdida.</p>
+                       <p>¿Desea continuar?</p>
                    </div>
 
                    <div className="modal-footer">
-                       <button type="button" className="btn btn-default" data-dismiss="modal" onClick={this.handleCloseModal}>Go Back</button>
-                       <a className="btn btn-danger btn-ok" data-dismiss="modal" onClick={this.onConfirm}>Yes, I admit defeat</a>
+                       <button type="button" className="btn btn-default" data-dismiss="modal" onClick={this.handleCloseModal}>Ir Atrás</button>
+                       <a className="btn btn-danger btn-ok" data-dismiss="modal" onClick={this.onConfirm}>Si, admito la derrota</a>
                    </div>
                </div>
            </div>

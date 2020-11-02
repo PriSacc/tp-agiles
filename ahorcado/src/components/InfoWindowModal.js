@@ -37,20 +37,19 @@ class InfoWindowModal extends Component {
                 </div>
 
                 <div className="modal-body">
-                  <p>The word to guess is represented by a row of dashes, representing
-                   each letter of the word. If the guessing player suggests a letter
-                   which occurs in the word, it shall appear in all its correct
-                   positions. If the suggested letter does not occur in the word,
-                   one element of a hanged man stick figure shall be drawn
-                   as a tally mark.</p>
-                   <p>
-                   After 10 tries, if the word is incomplete, the game is lost.
-                   If the word is completed before this, the game is won.
-                  </p>
-                  <p> P.S. <strong> The keyboard can also be used as a valid input method </strong> </p>
+                  <p>La palabra a adivinar está representada por una fila de guiones, 
+                    que representan cada letra de la palabra. Si el jugador que va a adivinar, 
+                    sugiere una letra que aparece en la palabra, ésta aparecerá en todas sus posiciones 
+                    correctas. Si la letra sugerida no aparece en la palabra, se dibujará un elemento 
+                    de una figura de palo de hombre colgado como marca de recuento.</p>
+                   
+                  <p>Si despues de 10 intentos la palabra está incompleta, el juego se da como perdido. En caso
+                    contrario, el juego se dará como ganado.</p>
+
+                  <p> P.D. <strong> El teclado también puede ser utilizado como un método de entrada válido </strong> </p>
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-default" onClick={this.handleCloseModal}>Back to Game</button>
+                  <button type="button" className="btn btn-default" onClick={this.handleCloseModal}>Volver al juego</button>
                 </div>
               </div>
             </div>

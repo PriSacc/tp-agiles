@@ -56,19 +56,19 @@ function registerValidSW(swUrl) {
               // the fresh content will have been added to the cache.
               // It's the perfect time to display a "New content is
               // available; please refresh." message in your web app.
-              console.log('New content is available; please refresh.');
+              console.log('Hay nuevo contenido disponible, por favor dale al F5.');
             } else {
               // At this point, everything has been precached.
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
-              console.log('Content is cached for offline use.');
+              console.log('El contenido se cachea para su uso online.');
             }
           }
         };
       };
     })
     .catch(error => {
-      console.error('Error during service worker registration:', error);
+      console.error('Error durante la registracion durante el service worker: ', error);
     });
 }
 
@@ -94,7 +94,7 @@ function checkValidServiceWorker(swUrl) {
     })
     .catch(() => {
       console.log(
-        'No internet connection found. App is running in offline mode.'
+        'No se detectó una conexion de internet. Modo offline activado!'
       );
     });
 }
