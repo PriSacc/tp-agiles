@@ -1,3 +1,0 @@
-funcsigs >= 1.0.2
-regex >= 2018.01.10
-sentencepiece >= 0.1.8
