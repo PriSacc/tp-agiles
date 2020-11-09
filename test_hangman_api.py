@@ -9,7 +9,7 @@ class HangmanTest(unittest.TestCase):
         words = hangman_api.load_words('nounlist.txt')
 
         # Check if we loaded all 4554 words in the file
-        self.assertEqual(len(words), 4554)
+        self.assertEqual(len(words), 80343)
 
         # Check if the first word was read properly
         self.assertEqual(words[0], 'AARDVARK')
