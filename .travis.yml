@@ -3,20 +3,23 @@ language: python
 dist: xenial
 cache: pip
 python:
-- '3.7'
-- '3.8'
+  - '3.8'
 install:
-- pip install --upgrade pip
-- pip install flake8==3.7.7
-- pip install pytest
-- pip install coverage codecov
-- pip install flask 
-- pip install flask-cors
+  - pip install --upgrade pip
+  - pip install flake8==3.7.7
+  - pip install pytest
+  - pip install coverage codecov
+  - pip install pipenv
 script:
-- flake8 texar/ examples/
-- coverage run -m pytest
-- coverage report 
-- coverage html
+  - pipenv install && pipenv shell
+  - npm install
+  - flake8 texar/ examples/
+  - coverage run -m unittest
+  - coverage report 
+  - coverage html
 after_success:
-- codecov
+  - codecov
+notifications:
+  email:
+    - sacchipriscila@gmail.com
 
