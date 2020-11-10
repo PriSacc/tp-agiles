@@ -5,10 +5,9 @@ cache: pip
 python:
   - '3.8'
 install:
-  - pip install --upgrade pip
-  - pip install pytest
-  - pip install coverage codecov
-  - pip install pipenv
+  - travis_wait pip install --upgrade pip
+  - travis_wait pip install coverage codecov
+  - travis_wait pip install pipenv
 script:
   - pipenv install && pipenv shell
   - npm install
