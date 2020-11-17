@@ -9,11 +9,11 @@ install:
   - travis_wait pip install coverage codecov
   - travis_wait pip install pipenv
 script:
-  - pipenv install && pipenv shell
   - npm install
   - coverage run -m unittest
   - coverage report 
   - coverage html
+  - pipenv install && pipenv shell
 after_success:
   - codecov
 
