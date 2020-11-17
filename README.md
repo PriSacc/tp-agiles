@@ -1,3 +1,4 @@
+[![codecov](https://codecov.io/gh/PriSacc/tp-agiles/branch/master/graph/badge.svg?token=6NDLZI4VRY)](undefined) [![Build Status](https://travis-ci.com/PriSacc/tp-agiles.svg?branch=master)](https://travis-ci.com/PriSacc/tp-agiles)
 # TPI - Ahorcado - Metodologias Ágiles 🌵 
 Un clon del famoso juego del ahoracado usando React.js, Bootstrap y Flask para la API. Toda la logica de negocio
 es manejada por el backend.
@@ -23,8 +24,3 @@ http://localhost:3000.
 ## Ejecutar casos de prueba 🔥 
 
 Correr `python test_hangman_api.py` para correr los tests.
-
-
-[![codecov](https://codecov.io/gh/PriSacc/tp-agiles/branch/master/graph/badge.svg?token=6NDLZI4VRY)](undefined)
-
-[![Build Status](https://travis-ci.com/PriSacc/tp-agiles.svg?branch=master)](https://travis-ci.com/PriSacc/tp-agiles)
