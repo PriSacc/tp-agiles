@@ -7,7 +7,7 @@ python:
 install:
   - travis_wait pip install --upgrade pip
   - travis_wait pip install coverage codecov
-  - travis_wait pip install pipenv
+#   - travis_wait pip install pipenv
   - travis_wait pip install flask 
   - travis_wait pip install flask-cors
 script:
@@ -15,7 +15,7 @@ script:
   - coverage run -m unittest
   - coverage report 
   - coverage html
-  - pipenv run
+#   - pipenv install && pipenv shell
 after_success:
   - codecov
 
