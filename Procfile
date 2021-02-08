@@ -1,1 +1,1 @@
-web: gunicorn server:hangman_api
+web: gunicorn server:app
