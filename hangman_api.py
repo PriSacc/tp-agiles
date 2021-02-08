@@ -6,7 +6,7 @@ from functools import wraps, update_wrapper
 from datetime import datetime
 
 # Create our flask app
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 # Set our secret key for session management
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
@@ -59,6 +59,14 @@ def reset_session():
     session['tries'] = [] # Incorrect guesses
     session['correct_chars'] = [] # Correct guesses
     session['gameStatus'] = 0 # -1,0 or 1 for lost, in progress or won
+
+@app.route('/')
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
+    
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/getword')
 @nocache # Make sure we're not reusing old cached words (reopen closed tab issue)
@@ -164,4 +172,4 @@ def check_char():
 
 if __name__ == '__main__':
     words = load_words('nounlist.txt')
-    app.run(debug = True)
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
