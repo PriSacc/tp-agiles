@@ -1,4 +1,4 @@
-import hangman_api
+import server
 import unittest
 import json
 import flask
@@ -6,7 +6,7 @@ import flask
 class HangmanTest(unittest.TestCase):
 
     def test_load_words(self):
-        words = hangman_api.load_words('nounlist.txt')
+        words = server.load_words('nounlist.txt')
 
         # Check if we loaded all 80343 words in the file
         self.assertEqual(len(words), 80343)
@@ -15,7 +15,7 @@ class HangmanTest(unittest.TestCase):
         self.assertEqual(words[0], 'ABRACADABRA')
 
     def test_get_char_positions(self):
-        positions = hangman_api.get_char_positions('A','ABRACADABRA')
+        positions = server.get_char_positions('A','ABRACADABRA')
 
         # Check if we got the correct positions for 'A'
         self.assertCountEqual(positions, [0, 3, 5, 7, 10])
@@ -25,11 +25,11 @@ class HangmanAPITest(unittest.TestCase):
 
     def setUp(self):
         # Load words
-        hangman_api.words = hangman_api.load_words('nounlist.txt')
+        server.words = server.load_words('nounlist.txt')
         # Enable testing
-        hangman_api.app.testing = True
+        server.app.testing = True
         # Get test client
-        self.app = hangman_api.app.test_client()
+        self.app = server.app.test_client()
 
     def test_get_word(self):
         response = self.app.get('/getword')
@@ -42,7 +42,7 @@ class HangmanAPITest(unittest.TestCase):
         self.assertEqual(json_data['resume_game'], False)
 
     def test_check_char(self):
-        with hangman_api.app.test_client() as client:
+        with server.app.test_client() as client:
             # Get a word to init the session
             client.get('/getword')
 
@@ -54,7 +54,7 @@ class HangmanAPITest(unittest.TestCase):
             json_data = json.loads(response.data.decode())
 
             # Check if all the positions were correct
-            actual_positions = hangman_api.get_char_positions(word[0], word)
+            actual_positions = server.get_char_positions(word[0], word)
             self.assertCountEqual(json_data['positions'], actual_positions)
 
 
@@ -70,14 +70,14 @@ class HangmanAPITest(unittest.TestCase):
         self.assertEqual(json_data['gamesWon'], 0)
 
     def test_lose_scenario(self):
-        with hangman_api.app.test_client() as client:
+        with server.app.test_client() as client:
             response = client.get('/getword')
             json_data = json.loads(response.data.decode())
 
             tries = 0
 
             # Lose the game by guessing each character not in the word, one by one
-            for char in hangman_api.letters:
+            for char in server.letters:
                 if char in set(flask.session['word']):
                     continue
 
@@ -93,7 +93,7 @@ class HangmanAPITest(unittest.TestCase):
             self.assertEqual(data['gameStatus'], -1)
 
     def test_win_scenario(self):
-        with hangman_api.app.test_client() as client:
+        with server.app.test_client() as client:
             response = client.get('/getword')
             json_data = json.loads(response.data.decode())
 
