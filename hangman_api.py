@@ -8,7 +8,6 @@ import os
 
 # Create our flask app
 app = Flask(__name__, static_folder='./build', static_url_path='/')
-
 # Set our secret key for session management
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
