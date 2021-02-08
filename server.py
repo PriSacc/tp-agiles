@@ -62,10 +62,6 @@ def reset_session():
     session['gameStatus'] = 0 # -1,0 or 1 for lost, in progress or won
 
 @app.route('/') 
-@app.errorhandler(404)
-def not_found(e):
-    return app.send_static_file('index.html')
-
 def index():
     return app.send_static_file('index.html')
 
