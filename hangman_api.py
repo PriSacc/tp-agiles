@@ -51,7 +51,7 @@ def load_words(file_path):
 
         return words
 
-def reset_session():
+def reset_session(): 
     """Resets the current session to prepare for a new game/word
     Statistics are not cleared and are maintained between games
     """
