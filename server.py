@@ -7,7 +7,7 @@ from datetime import datetime
 import os
 
 # Create our flask app
-app = Flask(__name__, static_folder='./build', static_url_path='/')
+app = Flask(__name__, static_url_path='/', static_folder='/build')
 
 # Set our secret key for session management
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
@@ -62,9 +62,10 @@ def reset_session():
     session['correct_chars'] = [] # Correct guesses.
     session['gameStatus'] = 0 # -1,0 or 1 for lost, in progress or won.
 
-@app.route('/index')
+@app.route('/')
 def index():
-    return send_from_directory(app.static_folder,'index.html')
+    return send_from_directory('./build','index.html')
+#@app.route('/index')
 
 @app.route('/getword')
 @nocache # Make sure we're not reusing old cached words (reopen closed tab issue).
