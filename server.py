@@ -44,8 +44,8 @@ def load_words(file_path):
         for word in word_file.readlines():
             word = word.strip().upper()
 
-            # Only keep characters in the alphabet
-            # Useful for removing hypens and other special characters
+            # Only keep characters in the alphabet.
+            # Useful for removing hypens and other special characters.
             word = ''.join(char for char in word if char.isalpha())
 
             if word:
@@ -58,9 +58,9 @@ def reset_session():
     Statistics are not cleared and are maintained between games
     """
 
-    session['tries'] = [] # Incorrect guesses
-    session['correct_chars'] = [] # Correct guesses
-    session['gameStatus'] = 0 # -1,0 or 1 for lost, in progress or won
+    session['tries'] = [] # Incorrect guesses.
+    session['correct_chars'] = [] # Correct guesses.
+    session['gameStatus'] = 0 # -1,0 or 1 for lost, in progress or won.
 
 @app.route('/')
 @app.route('/index')
@@ -69,7 +69,7 @@ def index():
 
 
 @app.route('/getword')
-@nocache # Make sure we're not reusing old cached words (reopen closed tab issue)
+@nocache # Make sure we're not reusing old cached words (reopen closed tab issue).
 def get_word():
     """API call to fetch a new word or return the current word if a game
     was left while in progress (to allow resuming that game)
@@ -90,13 +90,13 @@ def get_word():
             session['gamesWon'] = 0
             session['gamesLost'] = 0
         elif new_game and session['gameStatus'] == 0:
-            # Starting a new game without finishing previous
+            # Starting a new game without finishing previous.
             session['gamesLost'] = session['gamesLost'] + 1
 
         response_dict['resume_game'] = False
 
     else:
-        # Game is in progress, return saved game state so that player may continue
+        # Game is in progress, return saved game state so that player may continue.
 
         response_dict['tries'] = session['tries']
         correct_chars = {}
@@ -106,7 +106,7 @@ def get_word():
 
         response_dict['correct_chars'] = correct_chars
 
-        # Indicator to show that old game was resumed
+        # Indicator to show that old game was resumed.
         response_dict['resumed_game'] = True
 
     response_dict['word_length'] = len(session['word'])
@@ -150,20 +150,20 @@ def check_char():
         responseObj['character'] = c
         responseObj['positions'] = None
 
-    # Check if the game is lost
+    # Check if the game is lost.
     if len(session['tries']) >= 10:
         responseObj['gameStatus'] = -1
         session['gameStatus'] = -1
         responseObj['word'] = session['word']
         session['gamesLost'] = session['gamesLost'] + 1
 
-    # Check if the game is won
+    # Check if the game is won.
     elif len(session['correct_chars']) == len(set(session['word'])):
         responseObj['gameStatus'] = 1
         session['gameStatus'] = 1
         session['gamesWon'] = session['gamesWon'] + 1
 
-    # If neither, game is still in progress
+    # If neither, game is still in progress.
     else:
         responseObj['gameStatus'] = 0
 
