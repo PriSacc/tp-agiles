@@ -7,8 +7,8 @@ from datetime import datetime
 import os
 
 # Create our flask app
-app = Flask(__name__)
-#  static_url_path='/', static_folder='/build')
+app = Flask(__name__, static_folder='./build', static_url_path='/')
+#  )
 
 # Set our secret key for session management
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
@@ -65,7 +65,7 @@ def reset_session():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return app.send_static_file('index.html')
 #@app.route('/index')
 
 @app.route('/getword')
@@ -172,4 +172,5 @@ def check_char():
 
 if __name__ == '__main__':
     words = load_words('nounlist.txt')
-    app.run(host='0.0.0.0', debug=True, port=int(os.environ.get('PORT', 80)))
+    app.run()
+    # host='0.0.0.0', debug=False, port=int(os.environ.get('PORT', 80))
