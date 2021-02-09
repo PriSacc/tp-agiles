@@ -62,7 +62,7 @@ def reset_session():
     session['correct_chars'] = [] # Correct guesses.
     session['gameStatus'] = 0 # -1,0 or 1 for lost, in progress or won.
 
-@app.route('/')
+@app.route('/index')
 def index():
     return send_from_directory(app.static_folder,'index.html')
 
