@@ -7,7 +7,7 @@ from datetime import datetime
 import os
 
 # Create our flask app
-app = Flask(__name__,template_folder='build')
+app = Flask(__name__)
 #  static_url_path='/', static_folder='/build')
 
 # Set our secret key for session management
