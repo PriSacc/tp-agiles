@@ -1,4 +1,4 @@
-from flask import Flask, session, jsonify, request, make_response, send_from_directory
+from flask import Flask, session, jsonify, request, make_response, render_template, send_from_directory
 from flask_cors import CORS
 import random
 import re
@@ -7,7 +7,8 @@ from datetime import datetime
 import os
 
 # Create our flask app
-app = Flask(__name__, static_url_path='/', static_folder='/build')
+app = Flask(__name__)
+#  static_url_path='/', static_folder='/build')
 
 # Set our secret key for session management
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
@@ -64,7 +65,7 @@ def reset_session():
 
 @app.route('/')
 def index():
-    return send_from_directory('./build','index.html')
+    return render_template('/build/index.html')
 #@app.route('/index')
 
 @app.route('/getword')
