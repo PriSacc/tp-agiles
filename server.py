@@ -1,4 +1,4 @@
-from flask import Flask, session, jsonify, request, make_response, send_from_directory
+from flask import Flask, session, jsonify, request, make_response, render_template
 from flask_cors import CORS
 import random
 import re
@@ -66,7 +66,7 @@ def reset_session():
 
 @app.route('/index')
 def index():
-    return app.send_static_file('index.html')
+    return app.render_template('/build/index.html')
 
 @app.route('/getword')
 @nocache # Make sure we're not reusing old cached words (reopen closed tab issue)
