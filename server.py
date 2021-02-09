@@ -66,7 +66,7 @@ def reset_session():
 
 @app.route('/index')
 def index():
-    return app.render_template('/build/index.html')
+    return render_template('/build/index.html')
 
 @app.route('/getword')
 @nocache # Make sure we're not reusing old cached words (reopen closed tab issue)
