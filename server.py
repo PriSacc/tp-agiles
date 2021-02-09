@@ -63,10 +63,6 @@ def reset_session():
     session['gameStatus'] = 0 # -1,0 or 1 for lost, in progress or won.
 
 @app.route('/')
-def home_view(): 
-        return "<h1>Habla más fuerte que tengo una toalla</h1>"
-
-@app.route('/index')
 def index():
     return send_from_directory(app.static_folder,'index.html')
 
