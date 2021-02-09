@@ -66,10 +66,6 @@ def reset_session():
 def index():
     return app.send_static_file('index.html')
 
-@app.route('/favicon.ico') 
-def favicon(): 
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
 @app.route('/getword')
 @nocache # Make sure we're not reusing old cached words (reopen closed tab issue)
 def get_word():
