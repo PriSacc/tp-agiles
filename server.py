@@ -1,4 +1,4 @@
-from flask import Flask, session, jsonify, request, make_response, render_template
+from flask import Flask, session, jsonify, request, make_response, send_from_directory
 from flask_cors import CORS
 import random
 import re
@@ -63,10 +63,10 @@ def reset_session():
     session['gameStatus'] = 0 # -1,0 or 1 for lost, in progress or won
 
 @app.route('/')
-
 @app.route('/index')
 def index():
-    return render_template('/build/index.html')
+    return send_from_directory(app.static_folder,'index.html')
+
 
 @app.route('/getword')
 @nocache # Make sure we're not reusing old cached words (reopen closed tab issue)
