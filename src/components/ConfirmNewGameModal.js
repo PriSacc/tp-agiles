@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 
-class InfoWindowModal extends Component {
+export class InfoWindowModal extends Component {
   constructor(props) {
     super(props);
 

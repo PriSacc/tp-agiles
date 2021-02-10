@@ -8,7 +8,7 @@ class WinLossIndicator extends Component {
         <div className="container">
 
           <div className="navbar-header">
-            <a title="New Game" href="../" className="navbar-brand">AHORCADO UTNiano </a>
+            <a title="New Game" href="../" className="navbar-brand">Ahorcado UTN </a>
           </div>
 
           <div className="navbar-collapse collapse" id="navbar-main">

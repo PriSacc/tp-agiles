@@ -12,6 +12,7 @@ install:
   - travis_wait pip install flask-cors
 script:
   - npm install
+  - npm run test
   - coverage run -m unittest
   - coverage report 
   - coverage html

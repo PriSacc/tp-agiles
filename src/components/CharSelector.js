@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class CharSelector extends Component {
 
   static defaultProps = {
-    chars : "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
+    chars : "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".split("")
   };
 
   constructor(props){
