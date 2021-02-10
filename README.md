@@ -10,7 +10,7 @@ Se necesita Python3 y las siguientes librerias, para su funcionamiento:
 - Flask (`pip install flask`)
 - Flask-CORS (`pip install flask-cors`)
 
-Despues de instalar lo mencionado arriba, correr `python hangman_api.py`, para iniciar el servicio.
+Despues de instalar lo mencionado arriba, correr `python server.py` o `python3 server.py`, para iniciar el servicio.
 Debería estar corriendo en el puerto 5000.
 
 ## Para el Frontend 🔥 

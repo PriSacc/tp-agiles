@@ -17,7 +17,7 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 CORS(app, resources = {'*' : {'origins' : 'http://localhost:3000'}}, supports_credentials = True)
 
 words = []
-letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+letters = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
 
 def nocache(view):
     """Decorator to explicitly state that a response to the API call should
