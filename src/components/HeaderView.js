@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class WinLossIndicator extends Component {
-
+  
   headerBar(){
     return (
       <div className="navbar navbar-default navbar-fixed-top">
@@ -23,12 +23,20 @@ class WinLossIndicator extends Component {
   }
 
   render() {
+    const styleObj = {
+      color: "#c81d11"
+      // cursor: default;
+    }
+  const styleObjGanado = {
+    color: "#008f39"
+    // cursor: default;
+    }
     let statusMessage = null;
     if (this.props.gameStatus === -1){
-      statusMessage =  <div className="alert alert-danger"> <strong>Lo siento!</strong> Has perdido. <strong>Inténtalo de nuevo, iniciando un nuevo juego. </strong> </div>;
+      statusMessage =  <div className="alert alert-danger"> <strong>Lo siento!</strong> <a style={styleObj}>Has perdido</a>. <strong>Inténtalo de nuevo, iniciando un nuevo juego. </strong> </div>;
     }
     else if (this.props.gameStatus === 1){
-      statusMessage = <div className="alert alert-success"> <strong> Felicitaciones! </strong> Ganaste! </div>;
+      statusMessage = <div className="alert alert-success"> <strong> Felicitaciones! </strong> <a style={styleObjGanado}>Ganaste!</a></div>;
     }
     else{
       statusMessage = null
