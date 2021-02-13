@@ -36,6 +36,7 @@ def step_impl(context):
    print('TITULO: ', title)
    assert title == "Has perdido"
 
+# cambiar nounlist para que pase
 @when('se arriesga una letra para ganar')
 def step_impl(context):
     context.browser.find_element_by_id('A').click()
