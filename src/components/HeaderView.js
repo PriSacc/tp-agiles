@@ -14,7 +14,7 @@ class WinLossIndicator extends Component {
           <div className="navbar-collapse collapse" id="navbar-main">
             <ul className="nav navbar-nav navbar-right">
               <li><i className="glyphicon glyphicon-thumbs-up"/> <span title="Games Won" className="badge">{this.props.won}</span></li>
-              <li><i className="glyphicon glyphicon-thumbs-down"/> <span title="Games Lost" className="badge">{this.props.lost}</span></li>
+              <li><i className="glyphicon glyphicon-thumbs-down"/> <span title="Games Lost" id="numperdido" className="badge">{this.props.lost}</span></li>
             </ul>
           </div>
 

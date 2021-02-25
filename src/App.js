@@ -191,7 +191,7 @@ class App extends Component {
             </div>
 
             <div className="col-md-6 text-center">
-                <a className="btn btn-default" onClick={this.onNewGameRequested}>
+                <a className="btn btn-default" id="newgame" onClick={this.onNewGameRequested}>
                   <i className="glyphicon glyphicon-repeat"></i> Nuevo Juego
                 </a>
                 <a className="btn btn-default"  data-toggle="modal" data-target="#infoWindow" onClick={this.showInfo}>

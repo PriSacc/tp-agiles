@@ -5,7 +5,7 @@ from behave import *
 def step_impl(context):
     context.browser.get('http://localhost:3000')
 
-@when('se arriesga una letra para perder')
+@when('se arriesga una palabra para perder')
 def step_impl(context):
     context.browser.find_element_by_id('A').click()
     context.browser.find_element_by_id('B').click()
@@ -37,7 +37,7 @@ def step_impl(context):
    assert title == "Has perdido"
 
 # cambiar nounlist para que pase
-@when('se arriesga una letra para ganar')
+@when('se arriesga una palabra para ganar')
 def step_impl(context):
     context.browser.find_element_by_id('A').click()
     context.browser.find_element_by_id('H').click()

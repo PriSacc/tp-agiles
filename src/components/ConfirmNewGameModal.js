@@ -49,7 +49,7 @@ export class InfoWindowModal extends Component {
 
                    <div className="modal-footer">
                        <button type="button" className="btn btn-default" data-dismiss="modal" onClick={this.handleCloseModal}>Ir Atrás</button>
-                       <a className="btn btn-danger btn-ok" data-dismiss="modal" onClick={this.onConfirm}>Si, admito la derrota</a>
+                       <a className="btn btn-danger btn-ok" data-dismiss="modal" id="admito" onClick={this.onConfirm}>Si, admito la derrota</a>
                    </div>
                </div>
            </div>

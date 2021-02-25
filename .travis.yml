@@ -15,6 +15,7 @@ script:
   - coverage run -m unittest
   - coverage report 
   - coverage html
+  - behave
 #   - pipenv install && pipenv shell
 after_success:
   - codecov
